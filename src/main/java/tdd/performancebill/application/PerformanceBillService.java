@@ -33,19 +33,7 @@ public class PerformanceBillService {
 
         for (Performance perf : performanceSummary.getPerformances()) {
             Play play = plays.get(perf.getPlayId());
-            int thisAmount;
-
-            if (play.getType().equals("tragedy")) {
-                thisAmount = calTragedyAmount(perf.getAudience());
-            } else if (play.getType().equals("comedy")) {
-                thisAmount = 30000;
-                if (perf.getAudience() > 20) {
-                    thisAmount += 10000 + 500 * (perf.getAudience() - 20);
-                }
-                thisAmount += 300 * perf.getAudience();
-            } else {
-                throw new IllegalArgumentException("戏剧类型不正确!");
-            }
+            int thisAmount = calAmount(perf.getAudience(), play.getType());
 
             //计算观众量积分
             volumeCredits += Math.max(perf.getAudience() - 30, 0);
@@ -67,14 +55,42 @@ public class PerformanceBillService {
         return bill;
     }
 
+    private int calAmount(int audience, String playType) {
+        int thisAmount;
+        if (playType.equals("tragedy")) {
+            thisAmount = calTragedyAmount(audience);
+        } else if (playType.equals("comedy")) {
+            thisAmount = calComedyAmount(audience);
+        } else {
+            throw new IllegalArgumentException("戏剧类型不正确!");
+        }
+        return thisAmount;
+    }
+
+    int calComedyAmount(int audience) {
+        final int BASE_PRICE = 30000;
+        final int UNIT_PRICE = 300;
+
+        final int THRESHOLD = 20;
+        final int EXTRA_BASE_PRICE = 10000;
+        final int EXTRA_UNIT_PRICE = 500;
+
+        int amount = BASE_PRICE + UNIT_PRICE * audience;
+
+        if (audience > THRESHOLD) {
+            amount += EXTRA_BASE_PRICE + EXTRA_UNIT_PRICE * (audience - THRESHOLD);
+        }
+        return amount;
+    }
+
     int calTragedyAmount(int audience) {
         final int BASE_PRICE = 40000;
         final int THRESHOLD = 40;
-        final int UNIT_PRICE = 1000;
+        final int EXTRA_UNIT_PRICE = 1000;
 
         int amount = BASE_PRICE;
         if (audience > THRESHOLD) {
-            amount += UNIT_PRICE * (audience - THRESHOLD);
+            amount += EXTRA_UNIT_PRICE * (audience - THRESHOLD);
         }
         return amount;
     }

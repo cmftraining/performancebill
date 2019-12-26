@@ -26,6 +26,24 @@ public class PerformanceBillServiceTest {
         assertEquals(expected, amount);
     }
 
+    @Test
+    public void calComedyAmount_大于20人时_加收人头费() {
+        verifyCalComedyAmount(21, 46800);
+    }
+
+    @Test
+    public void calTragedyAmount_不大于20人时_不加收人头费() {
+        verifyCalComedyAmount(20, 36000);
+    }
+
+    private void verifyCalComedyAmount(int audience, int expected) {
+        PerformanceBillService sut = new PerformanceBillService();
+
+        Performance perf = new Performance("hamelet", audience);
+        int amount = sut.calComedyAmount(perf.getAudience());
+
+        assertEquals(expected, amount);
+    }
 
 
 }
