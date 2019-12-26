@@ -4,13 +4,16 @@ import tdd.performancebill.domain.model.amountstrategy.AmountStrategy;
 import tdd.performancebill.domain.model.amountstrategy.ComedyAmountStrategy;
 
 public class ComedyType extends PlayType {
+
+    static final String NAME = "comedy";
+
     @Override
     public AmountStrategy getAmountStrategy() {
-        return new ComedyAmountStrategy();
+        return ComedyAmountStrategy.INSTANCE;
     }
 
     @Override
     public boolean is(String typeName) {
-        return "comedy".equals(typeName);
+        return NAME.equals(typeName);
     }
 }

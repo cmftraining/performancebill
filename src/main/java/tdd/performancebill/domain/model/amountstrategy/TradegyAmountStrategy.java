@@ -1,6 +1,8 @@
 package tdd.performancebill.domain.model.amountstrategy;
 
 public class TradegyAmountStrategy extends AmountStrategy {
+    public static final AmountStrategy INSTANCE = new TradegyAmountStrategy();
+
     @Override
     public int cal(int audience) {
         final int BASE_PRICE = 40000;

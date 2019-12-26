@@ -4,13 +4,15 @@ import tdd.performancebill.domain.model.amountstrategy.AmountStrategy;
 import tdd.performancebill.domain.model.amountstrategy.TradegyAmountStrategy;
 
 public class TragedyType extends PlayType {
+    static final String NAME = "tragedy";
+
     @Override
     public AmountStrategy getAmountStrategy() {
-        return new TradegyAmountStrategy();
+        return TradegyAmountStrategy.INSTANCE;
     }
 
     @Override
     public boolean is(String typeName) {
-        return "tragedy".equals(typeName);
+        return TragedyType.NAME.equals(typeName);
     }
 }

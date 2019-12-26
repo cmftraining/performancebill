@@ -1,6 +1,8 @@
 package tdd.performancebill.domain.model.amountstrategy;
 
 public class ComedyAmountStrategy extends AmountStrategy{
+    public static final AmountStrategy INSTANCE = new ComedyAmountStrategy();
+
     @Override
     public int cal(int audience) {
         final int BASE_PRICE = 30000;

@@ -35,7 +35,7 @@ public class PerformanceBillService {
 
         for (Performance perf : performanceSummary.getPerformances()) {
             Play play = plays.get(perf.getPlayId());
-            int thisAmount = play.getType().getAmountStrategy().cal(perf.getAudience());
+            int thisAmount = play.calAmount(perf.getAudience());
 
             //计算观众量积分
             volumeCredits += Math.max(perf.getAudience() - 30, 0);

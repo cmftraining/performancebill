@@ -24,4 +24,8 @@ public class Play {
     public PlayType getType() {
         return type;
     }
+
+    public int calAmount(int audience) {
+        return type.getAmountStrategy().cal(audience);
+    }
 }
