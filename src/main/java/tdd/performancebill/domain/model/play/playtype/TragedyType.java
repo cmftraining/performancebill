@@ -2,8 +2,8 @@ package tdd.performancebill.domain.model.play.playtype;
 
 import tdd.performancebill.domain.model.play.playtype.amountstrategy.AmountStrategy;
 import tdd.performancebill.domain.model.play.playtype.amountstrategy.TragedyAmountStrategy;
-import tdd.performancebill.domain.model.play.playtype.volumncreditesstrategy.TragedyVolumnCreditsStrategy;
-import tdd.performancebill.domain.model.play.playtype.volumncreditesstrategy.VolumnCreditsStrategy;
+import tdd.performancebill.domain.model.play.playtype.volumncreditsstrategy.TragedyVolumnCreditsStrategy;
+import tdd.performancebill.domain.model.play.playtype.volumncreditsstrategy.VolumnCreditsStrategy;
 
 public class TragedyType extends PlayType {
     static final String NAME = "tragedy";

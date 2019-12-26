@@ -2,8 +2,8 @@ package tdd.performancebill.domain.model.play.playtype;
 
 import tdd.performancebill.domain.model.play.playtype.amountstrategy.AmountStrategy;
 import tdd.performancebill.domain.model.play.playtype.amountstrategy.ComedyAmountStrategy;
-import tdd.performancebill.domain.model.play.playtype.volumncreditesstrategy.ComedyVolumnCreditesStrategy;
-import tdd.performancebill.domain.model.play.playtype.volumncreditesstrategy.VolumnCreditsStrategy;
+import tdd.performancebill.domain.model.play.playtype.volumncreditsstrategy.ComedyVolumnCreditsStrategy;
+import tdd.performancebill.domain.model.play.playtype.volumncreditsstrategy.VolumnCreditsStrategy;
 
 public class ComedyType extends PlayType {
 
@@ -21,6 +21,6 @@ public class ComedyType extends PlayType {
 
     @Override
     public VolumnCreditsStrategy getVolumnCreditsStrategy() {
-        return ComedyVolumnCreditesStrategy.INSTANCE;
+        return ComedyVolumnCreditsStrategy.INSTANCE;
     }
 }

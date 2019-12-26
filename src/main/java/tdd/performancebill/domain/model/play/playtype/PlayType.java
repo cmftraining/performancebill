@@ -1,7 +1,7 @@
 package tdd.performancebill.domain.model.play.playtype;
 
 import tdd.performancebill.domain.model.play.playtype.amountstrategy.AmountStrategy;
-import tdd.performancebill.domain.model.play.playtype.volumncreditesstrategy.VolumnCreditsStrategy;
+import tdd.performancebill.domain.model.play.playtype.volumncreditsstrategy.VolumnCreditsStrategy;
 
 abstract public class PlayType {
     abstract public AmountStrategy getAmountStrategy() ;

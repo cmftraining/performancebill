@@ -1,4 +1,4 @@
-package tdd.performancebill.domain.model.play.playtype.volumncreditesstrategy;
+package tdd.performancebill.domain.model.play.playtype.volumncreditsstrategy;
 
 
 public class TragedyVolumnCreditsStrategy extends VolumnCreditsStrategy{
