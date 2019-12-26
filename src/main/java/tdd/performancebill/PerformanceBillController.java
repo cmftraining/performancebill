@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+//TODO 将悲剧加收人头费的门槛由30人改为40人
 @RestController
 public class PerformanceBillController {
 
@@ -33,10 +34,7 @@ public class PerformanceBillController {
             int thisAmount;
 
             if (play.getType().equals("tragedy")) {
-                thisAmount = 40000;
-                if (perf.getAudience() > 30) {
-                    thisAmount += 1000 * (perf.getAudience() - 30);
-                }
+                thisAmount = calTragedyAmount(perf.getAudience());
             } else if (play.getType().equals("comedy")) {
                 thisAmount = 30000;
                 if (perf.getAudience() > 20) {
@@ -66,6 +64,18 @@ public class PerformanceBillController {
         repository.save(bill);
 
         return bill;
+    }
+
+    int calTragedyAmount(int audience) {
+        final int BASE_PRICE = 40000;
+        final int THRESHOLD = 40;
+        final int UNIT_PRICE = 1000;
+
+        int amount = BASE_PRICE;
+        if (audience > THRESHOLD) {
+            amount += UNIT_PRICE * (audience - THRESHOLD);
+        }
+        return amount;
     }
 
 }
