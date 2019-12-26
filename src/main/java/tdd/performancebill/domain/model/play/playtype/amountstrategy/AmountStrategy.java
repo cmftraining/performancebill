@@ -1,4 +1,4 @@
-package tdd.performancebill.domain.model.amountstrategy;
+package tdd.performancebill.domain.model.play.playtype.amountstrategy;
 
 public abstract class AmountStrategy {
 

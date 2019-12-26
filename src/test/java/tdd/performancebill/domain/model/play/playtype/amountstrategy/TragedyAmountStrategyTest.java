@@ -1,11 +1,10 @@
-package tdd.performancebill.domain.model.amountstrategy;
+package tdd.performancebill.domain.model.play.playtype.amountstrategy;
 
 import org.junit.Test;
-import tdd.performancebill.application.PerformanceBillService;
 
 import static org.junit.Assert.*;
 
-public class TradegyAmountStrategyTest {
+public class TragedyAmountStrategyTest {
 
     @Test
     public void cal_大于40人时_加收人头费() {
@@ -18,7 +17,7 @@ public class TradegyAmountStrategyTest {
     }
 
     private void verifyCal(int audience, int expected) {
-        TradegyAmountStrategy sut = new TradegyAmountStrategy();
+        TragedyAmountStrategy sut = new TragedyAmountStrategy();
 
         int amount = sut.cal(audience);
 

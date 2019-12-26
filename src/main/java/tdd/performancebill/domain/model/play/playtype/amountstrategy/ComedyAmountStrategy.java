@@ -1,4 +1,4 @@
-package tdd.performancebill.domain.model.amountstrategy;
+package tdd.performancebill.domain.model.play.playtype.amountstrategy;
 
 public class ComedyAmountStrategy extends AmountStrategy{
     public static final AmountStrategy INSTANCE = new ComedyAmountStrategy();

@@ -1,7 +1,6 @@
-package tdd.performancebill.domain.model.amountstrategy;
+package tdd.performancebill.domain.model.play.playtype.amountstrategy;
 
 import org.junit.Test;
-import tdd.performancebill.application.PerformanceBillService;
 
 import static org.junit.Assert.assertEquals;
 

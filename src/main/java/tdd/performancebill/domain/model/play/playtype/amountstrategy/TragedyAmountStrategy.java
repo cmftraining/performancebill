@@ -1,7 +1,7 @@
-package tdd.performancebill.domain.model.amountstrategy;
+package tdd.performancebill.domain.model.play.playtype.amountstrategy;
 
-public class TradegyAmountStrategy extends AmountStrategy {
-    public static final AmountStrategy INSTANCE = new TradegyAmountStrategy();
+public class TragedyAmountStrategy extends AmountStrategy {
+    public static final AmountStrategy INSTANCE = new TragedyAmountStrategy();
 
     @Override
     public int cal(int audience) {

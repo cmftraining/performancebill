@@ -35,10 +35,9 @@ public class PerformanceBillService {
 
         for (Performance perf : performanceSummary.getPerformances()) {
             Play play = plays.get(perf.getPlayId());
-            int thisAmount = play.calAmount(perf.getAudience());
 
-            //计算观众量积分
-            int thisVolumeCredits = calVolumeCredits(play, perf.getAudience());
+            int thisAmount = play.calAmount(perf.getAudience());
+            int thisVolumeCredits = play.calVolumnCredits(perf.getAudience());
 
             totalAmount += thisAmount;
             volumeCredits += thisVolumeCredits;
@@ -53,15 +52,6 @@ public class PerformanceBillService {
 
         repository.save(bill);
         return bill;
-    }
-
-    private int calVolumeCredits(Play play, int audience) {
-        return play.calVolumnCredits(audience);
-//        calVolumnCreditsint thisVolumeCredits = Math.max(audience - 30, 0);
-//        if (play.getType().is("comedy")) {
-//            thisVolumeCredits += Math.floorDiv(audience, 5);
-//        }
-//        return thisVolumeCredits;
     }
 
 }
