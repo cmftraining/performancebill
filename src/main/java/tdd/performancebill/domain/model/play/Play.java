@@ -28,4 +28,12 @@ public class Play {
     public int calAmount(int audience) {
         return type.getAmountStrategy().cal(audience);
     }
+
+    public int calVolumnCredits(int audience) {
+        int thisVolumeCredits = Math.max(audience - 30, 0);
+        if (type.is("comedy")) {
+            thisVolumeCredits += Math.floorDiv(audience, 5);
+        }
+        return thisVolumeCredits;
+    }
 }
