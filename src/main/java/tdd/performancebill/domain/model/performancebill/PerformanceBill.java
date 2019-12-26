@@ -1,4 +1,4 @@
-package tdd.performancebill.domain.model;
+package tdd.performancebill.domain.model.performancebill;
 
 import javax.persistence.*;
 import java.util.ArrayList;

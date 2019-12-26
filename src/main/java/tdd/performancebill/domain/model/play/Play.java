@@ -1,11 +1,13 @@
-package tdd.performancebill.domain.model;
+package tdd.performancebill.domain.model.play;
+
+import tdd.performancebill.domain.model.play.playtype.PlayType;
 
 public class Play {
     String id;
     String name;
-    String type;
+    PlayType type;
 
-    public Play(String id, String name, String type) {
+    public Play(String id, String name, PlayType type) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -19,7 +21,7 @@ public class Play {
         return name;
     }
 
-    public String getType() {
+    public PlayType getType() {
         return type;
     }
 }

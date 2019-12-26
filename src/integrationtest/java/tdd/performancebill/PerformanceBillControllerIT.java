@@ -20,8 +20,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 import com.github.database.rider.spring.api.DBRider;
 import com.github.database.rider.core.api.dataset.DataSet;
-import tdd.performancebill.domain.model.PerformanceBill;
-import tdd.performancebill.domain.model.PerformanceSummary;
+import tdd.performancebill.domain.model.performancebill.PerformanceBill;
+import tdd.performancebill.domain.model.performancesummary.PerformanceSummary;
 
 import static org.assertj.core.api.Assertions.*;
 
