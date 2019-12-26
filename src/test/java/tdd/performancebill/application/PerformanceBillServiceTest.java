@@ -1,10 +1,11 @@
-package tdd.performancebill;
+package tdd.performancebill.application;
 
 import org.junit.Test;
+import tdd.performancebill.domain.model.Performance;
 
 import static org.junit.Assert.*;
 
-public class PerformanceBillControllerTest {
+public class PerformanceBillServiceTest {
 
     @Test
     public void calTragedyAmount_大于40人时_加收人头费() {
@@ -17,7 +18,7 @@ public class PerformanceBillControllerTest {
     }
 
     private void verifyCalTragedyAmount(int audience, int expected) {
-        PerformanceBillController sut = new PerformanceBillController();
+        PerformanceBillService sut = new PerformanceBillService();
 
         Performance perf = new Performance("hamelet", audience);
         int amount = sut.calTragedyAmount(perf.getAudience());

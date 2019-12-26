@@ -1,22 +1,24 @@
-package tdd.performancebill;
+package tdd.performancebill.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import tdd.performancebill.domain.model.Performance;
+import tdd.performancebill.domain.model.PerformanceBill;
+import tdd.performancebill.domain.model.PerformanceSummary;
+import tdd.performancebill.domain.model.Play;
+import tdd.performancebill.infrastrucure.PerformanceBillRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO 将悲剧加收人头费的门槛由30人改为40人
-@RestController
-public class PerformanceBillController {
-
-    Map<String, Play> plays = new HashMap<>();
-
+@Service
+public class PerformanceBillService {
     @Autowired
     PerformanceBillRepository repository;
 
-    @PostMapping("/api/performancebill")
-    public PerformanceBill createBill(@RequestBody PerformanceSummary performanceSummary) {
+    public PerformanceBill buildPerformanceBill(@RequestBody PerformanceSummary performanceSummary) {
+        Map<String, Play> plays = new HashMap<>();
         //初始化戏剧列表
         plays.put("hamlet", new Play("hamelet", "Hamlet", "tragedy"));
         plays.put("as-like", new Play("as-like", "As You Like It", "comedy"));
@@ -62,7 +64,6 @@ public class PerformanceBillController {
         bill.setVolumeCredits(volumeCredits);
 
         repository.save(bill);
-
         return bill;
     }
 

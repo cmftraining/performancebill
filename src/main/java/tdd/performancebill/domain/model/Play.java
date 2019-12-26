@@ -1,4 +1,4 @@
-package tdd.performancebill;
+package tdd.performancebill.domain.model;
 
 public class Play {
     String id;
