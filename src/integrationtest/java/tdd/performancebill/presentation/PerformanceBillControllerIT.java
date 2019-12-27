@@ -1,4 +1,4 @@
-package tdd.performancebill;
+package tdd.performancebill.presentation;
 
 import java.io.IOException;
 
@@ -20,6 +20,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 import com.github.database.rider.spring.api.DBRider;
 import com.github.database.rider.core.api.dataset.DataSet;
+import tdd.performancebill.domain.model.PerformanceBill;
+import tdd.performancebill.domain.model.PerformanceSummary;
 
 import static org.assertj.core.api.Assertions.*;
 
