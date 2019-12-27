@@ -33,10 +33,7 @@ public class PerformanceBillController {
             int thisAmount;
 
             if (play.getType().equals("tragedy")) {
-                thisAmount = 40000;
-                if (perf.getAudience() > 30) {
-                    thisAmount += 1000 * (perf.getAudience() - 30);
-                }
+                thisAmount = calTragedyAmount(perf.getAudience());
             } else if (play.getType().equals("comedy")) {
                 thisAmount = 30000;
                 if (perf.getAudience() > 20) {
@@ -66,6 +63,18 @@ public class PerformanceBillController {
         repository.save(bill);
 
         return bill;
+    }
+
+    int calTragedyAmount(int audience) {
+        final int THRESHOLD = 20;
+        final int EXTRA_UNIT_PRICE = 1000;
+        final int BASE_PRICE = 40000;
+
+        int amt = BASE_PRICE;
+        if (audience > THRESHOLD) {
+            amt += EXTRA_UNIT_PRICE * (audience - THRESHOLD);
+        }
+        return amt;
     }
 
 }
